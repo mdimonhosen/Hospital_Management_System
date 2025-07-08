@@ -15,14 +15,12 @@ import javafx.scene.control.Button;
  *
  * @author Admin
  */
-public class EmployeeDetailsController implements Initializable {
+public class UpdatePatientController implements Initializable {
 
     @FXML
     private Button button1;
     @FXML
     private Button button2;
-    @FXML
-    private Button button3;
 
     /**
      * Initializes the controller class.

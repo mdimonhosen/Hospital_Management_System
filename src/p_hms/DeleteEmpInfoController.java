@@ -6,7 +6,9 @@ package p_hms;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -14,6 +16,13 @@ import javafx.fxml.Initializable;
  * @author Admin
  */
 public class DeleteEmpInfoController implements Initializable {
+
+    @FXML
+    private Button button1;
+    @FXML
+    private Button button3;
+    @FXML
+    private Button button2;
 
     /**
      * Initializes the controller class.

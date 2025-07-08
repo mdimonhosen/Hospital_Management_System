@@ -15,7 +15,7 @@ import javafx.scene.control.Button;
  *
  * @author Admin
  */
-public class EmployeeDetailsController implements Initializable {
+public class UpdateEmpSalaryController implements Initializable {
 
     @FXML
     private Button button1;

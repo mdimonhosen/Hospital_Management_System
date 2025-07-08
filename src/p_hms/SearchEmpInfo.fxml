@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p_hms.SearchEmpInfoController">
+   <children>
+      <Label layoutX="204.0" layoutY="14.0" text="Search Employee Details" textFill="#0a15eb">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <TableView layoutX="10.0" layoutY="161.0" prefHeight="200.0" prefWidth="651.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Emp ID" />
+          <TableColumn prefWidth="75.0" text="Name" />
+            <TableColumn prefWidth="75.0" text="Gender" />
+            <TableColumn prefWidth="75.0" text="Address" />
+            <TableColumn prefWidth="75.0" text="Emp Type" />
+            <TableColumn prefWidth="95.0" text="Date od Joining" />
+            <TableColumn prefWidth="95.0" text="Dept Name" />
+            <TableColumn prefWidth="95.0" text="Salary" />
+        </columns>
+      </TableView>
+      <Label layoutX="35.0" layoutY="57.0" text="Search By:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="113.0" />
+      <RadioButton layoutX="35.0" layoutY="80.0" mnemonicParsing="false" text="Name" />
+      <RadioButton layoutX="35.0" layoutY="105.0" mnemonicParsing="false" text="Employee ID" />
+      <TextField layoutX="35.0" layoutY="130.0" />
+      <Label layoutX="403.0" layoutY="57.0" text="Contact Info: ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="403.0" layoutY="80.0" text="Phone" />
+      <Label layoutX="405.0" layoutY="108.0" text="Email" />
+      <TextField layoutX="480.0" layoutY="76.0" />
+      <TextField layoutX="480.0" layoutY="104.0" />
+      <Button fx:id="button1" layoutX="22.0" layoutY="19.0" mnemonicParsing="false" text="Back">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="button2" layoutX="249.0" layoutY="367.0" mnemonicParsing="false" text="Save">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="button3" layoutX="389.0" layoutY="367.0" mnemonicParsing="false" text="Clear">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="330.0" layoutY="371.0" text="or" />
+   </children>
+</AnchorPane>
