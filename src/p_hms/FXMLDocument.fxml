@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="p_hms.FXMLDocumentController">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="202.0" prefWidth="330.0">
+         <children>
+            <Label layoutX="46.0" layoutY="12.0" prefHeight="43.0" prefWidth="235.0" text="General Hospital" textFill="#f81515">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <Button fx:id="button1" layoutX="20.0" layoutY="67.0" mnemonicParsing="false" text="Receptionist Panal">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="button3" layoutX="20.0" layoutY="120.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Medical Tests">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="button4" layoutX="169.0" layoutY="120.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Medicines">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="button2" layoutX="169.0" layoutY="67.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Admin Panel">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>
