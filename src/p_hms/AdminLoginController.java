@@ -4,11 +4,19 @@
  */
 package p_hms;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
 
 /**
  * FXML Controller class
@@ -29,5 +37,18 @@ public class AdminLoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void login(ActionEvent event) throws IOException {
+         // Load the PatientRegForm.fxml file
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminInfo.fxml"));
+        Parent root = loader.load();
+
+        // Create a new stage (window) and set the scene
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
     
 }

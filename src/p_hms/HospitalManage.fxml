@@ -22,17 +22,17 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button4" layoutX="82.0" layoutY="200.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="204.0" text="Search Patient Details">
+      <Button fx:id="button4" layoutX="82.0" layoutY="200.0" mnemonicParsing="false" onAction="#spd" prefHeight="63.0" prefWidth="204.0" text="Search Patient Details">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button3" layoutX="300.0" layoutY="113.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="204.0" text="Bill Generation">
+      <Button fx:id="button3" layoutX="300.0" layoutY="113.0" mnemonicParsing="false" onAction="#bg" prefHeight="63.0" prefWidth="204.0" text="Bill Generation">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button5" layoutX="300.0" layoutY="200.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="204.0" text="Update Patient Record">
+      <Button fx:id="button5" layoutX="300.0" layoutY="200.0" mnemonicParsing="false" onAction="#upd" prefHeight="63.0" prefWidth="204.0" text="Update Patient Record">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

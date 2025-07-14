@@ -55,5 +55,44 @@ public class HospitalManageController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
+    @FXML
+    private void spd(ActionEvent event) throws IOException {
+         // Load the PatientRegForm.fxml file
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchPatientDetails.fxml"));
+        Parent root = loader.load();
+
+        // Create a new stage (window) and set the scene
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void bg(ActionEvent event) throws IOException {
+     // Load the PatientRegForm.fxml file
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Bill Generation.fxml"));
+        Parent root = loader.load();
+
+        // Create a new stage (window) and set the scene
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void upd(ActionEvent event) throws IOException {
+         // Load the PatientRegForm.fxml file
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdatePatient.fxml"));
+        Parent root = loader.load();
+
+        // Create a new stage (window) and set the scene
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
     
 }
