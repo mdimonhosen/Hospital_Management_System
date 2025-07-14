@@ -15,6 +15,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
@@ -29,26 +31,42 @@ public class AdminLoginController implements Initializable {
     private Button button1;
     @FXML
     private Button button2;
+    @FXML
+    private TextField tfuserid;
+    @FXML
+    private PasswordField pfpass;
+    @FXML
+    private Label lblMessage; // Add this to your FXML file
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // Nothing needed here now
     }    
 
     @FXML
     private void login(ActionEvent event) throws IOException {
-         // Load the PatientRegForm.fxml file
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminInfo.fxml"));
-        Parent root = loader.load();
+        String userId = tfuserid.getText();
+        String password = pfpass.getText();
+
+        if(userId.equals("1234") && password.equals("1234")) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminInfo.fxml"));
+            Parent root = loader.load();
 
         // Create a new stage (window) and set the scene
-        Stage stage = new Stage();
-        stage.setTitle("");
-        stage.setScene(new Scene(root));
-        stage.show();
+            Stage stage = new Stage();
+            stage.setTitle("Admin Dashboard");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            // Close current window
+            Stage currentStage = (Stage) button1.getScene().getWindow();
+            currentStage.close();
+        } else {
+            lblMessage.setText("Invalid User ID or Password");
+        }
     }
 
     @FXML
