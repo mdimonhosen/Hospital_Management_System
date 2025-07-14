@@ -1,42 +1,50 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML2.java to edit this template
- */
 package p_hms;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 /**
- *
- * @author Admin
+ * Controller class for the main FXML window
  */
 public class FXMLDocumentController implements Initializable {
-    
+
     @FXML
     private Label label;
     @FXML
     private Button button1;
     @FXML
+    private Button button2;
+    @FXML
     private Button button3;
     @FXML
     private Button button4;
+
+    // This method is called when the button is clicked
     @FXML
-    private Button button2;
-    
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+    private void handleButtonAction(ActionEvent event) throws IOException {
+        // Load the PatientRegForm.fxml file
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HospitalManage.fxml"));
+        Parent root = loader.load();
+
+        // Create a new stage (window) and set the scene
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        // Any initialization code if needed
+    }
 }

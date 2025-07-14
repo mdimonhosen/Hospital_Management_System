@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="p_hms.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p_hms.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="202.0" prefWidth="330.0">
@@ -15,7 +15,7 @@
                   <Font name="System Bold" size="29.0" />
                </font>
             </Label>
-            <Button fx:id="button1" layoutX="20.0" layoutY="67.0" mnemonicParsing="false" text="Receptionist Panal">
+            <Button fx:id="button1" layoutX="20.0" layoutY="67.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Receptionist Panal">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
