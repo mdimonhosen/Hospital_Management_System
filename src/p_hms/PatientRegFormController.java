@@ -6,9 +6,11 @@ package p_hms;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -23,13 +25,50 @@ public class PatientRegFormController implements Initializable {
     private Button button2;
     @FXML
     private Button button3;
+    @FXML
+    private Button button4;
+    @FXML
+    private Button button5;
+    @FXML
+    private Button button6;
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void back(ActionEvent event) {  
+        Stage stage = (Stage) button1.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    private void savebutton(ActionEvent event) {
+    }
+
+    @FXML
+    private void clearbutton(ActionEvent event) {
+    }
+
+    @FXML
+    private void back2(ActionEvent event) {
+        Stage stage;
+        stage = (Stage) button4.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    private void savebutton2(ActionEvent event) {
+    }
+
+    @FXML
+    private void clearbutton2(ActionEvent event) {
+    }
     
 }

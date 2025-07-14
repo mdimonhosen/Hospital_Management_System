@@ -50,5 +50,11 @@ public class AdminLoginController implements Initializable {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
+    @FXML
+    private void back(ActionEvent event) {
+        Stage stage = (Stage) button1.getScene().getWindow();
+        stage.close();
+    }
     
 }

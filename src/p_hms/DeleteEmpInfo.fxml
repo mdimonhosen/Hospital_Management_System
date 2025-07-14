@@ -6,20 +6,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="310.0" prefWidth="446.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="p_hms.DeleteEmpInfoController">
+<AnchorPane id="AnchorPane" prefHeight="310.0" prefWidth="446.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p_hms.DeleteEmpInfoController">
    <children>
-      <Button fx:id="button1" layoutX="17.0" layoutY="24.0" mnemonicParsing="false" text="Back">
+      <Button fx:id="button1" layoutX="17.0" layoutY="24.0" mnemonicParsing="false" onAction="#back" text="Back">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button3" layoutX="334.0" layoutY="244.0" mnemonicParsing="false" text="Clear Fields">
+      <Button fx:id="button3" layoutX="334.0" layoutY="244.0" mnemonicParsing="false" onAction="#clearbutton" text="Clear Fields">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button2" layoutX="223.0" layoutY="244.0" mnemonicParsing="false" text="Delete Record">
+      <Button fx:id="button2" layoutX="223.0" layoutY="244.0" mnemonicParsing="false" onAction="#deletebutton" text="Delete Record">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

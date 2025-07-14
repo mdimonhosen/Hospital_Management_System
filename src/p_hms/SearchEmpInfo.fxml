@@ -46,17 +46,17 @@
       <Label layoutX="405.0" layoutY="108.0" text="Email" />
       <TextField layoutX="480.0" layoutY="76.0" />
       <TextField layoutX="480.0" layoutY="104.0" />
-      <Button fx:id="button1" layoutX="22.0" layoutY="19.0" mnemonicParsing="false" text="Back">
+      <Button fx:id="button1" layoutX="22.0" layoutY="19.0" mnemonicParsing="false" onAction="#back" text="Back">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button2" layoutX="249.0" layoutY="367.0" mnemonicParsing="false" text="Save">
+      <Button fx:id="button2" layoutX="249.0" layoutY="367.0" mnemonicParsing="false" onAction="#save" text="Save">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button3" layoutX="389.0" layoutY="367.0" mnemonicParsing="false" text="Clear">
+      <Button fx:id="button3" layoutX="389.0" layoutY="367.0" mnemonicParsing="false" onAction="#clear" text="Clear">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

@@ -9,10 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="p_hms.UpdatePatientController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p_hms.UpdatePatientController">
    <children>
-      <Button fx:id="button1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back">
+      <Button fx:id="button1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="Back">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -53,7 +52,7 @@
       <Text layoutX="27.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="House No." />
       <Text layoutX="27.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Street" />
       <Text layoutX="28.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State" />
-      <Button fx:id="button2" layoutX="279.0" layoutY="364.0" mnemonicParsing="false" text="Update">
+      <Button fx:id="button2" layoutX="279.0" layoutY="364.0" mnemonicParsing="false" onAction="#update" text="Update">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

@@ -6,7 +6,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="292.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p_hms.AdminInfoController">
    <children>
-      <Button fx:id="button1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back">
+      <Button fx:id="button1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="Back">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

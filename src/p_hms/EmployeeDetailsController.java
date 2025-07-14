@@ -6,9 +6,11 @@ package p_hms;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -26,10 +28,26 @@ public class EmployeeDetailsController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void back(ActionEvent event) {
+          Stage stage = (Stage) button1.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    private void savebutton(ActionEvent event) {
+    }
+
+    @FXML
+    private void clearbutton(ActionEvent event) {
+    }
     
 }
