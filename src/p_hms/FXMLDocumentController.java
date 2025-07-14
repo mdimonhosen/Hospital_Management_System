@@ -47,4 +47,43 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // Any initialization code if needed
     }
+
+    @FXML
+    private void mt(ActionEvent event) throws IOException {
+        // Load the PatientRegForm.fxml file
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PatientTests.fxml"));
+        Parent root = loader.load();
+
+        // Create a new stage (window) and set the scene
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void md(ActionEvent event) throws IOException {
+        // Load the PatientRegForm.fxml file
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PatientsMedicine.fxml"));
+        Parent root = loader.load();
+
+        // Create a new stage (window) and set the scene
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void ap(ActionEvent event) throws IOException {
+        // Load the PatientRegForm.fxml file
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminLogin.fxml"));
+        Parent root = loader.load();
+
+        // Create a new stage (window) and set the scene
+        Stage stage = new Stage();
+        stage.setTitle("");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }

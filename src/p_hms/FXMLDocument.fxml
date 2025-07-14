@@ -20,17 +20,17 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="button3" layoutX="20.0" layoutY="120.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Medical Tests">
+            <Button fx:id="button3" layoutX="20.0" layoutY="120.0" mnemonicParsing="false" onAction="#mt" prefHeight="30.0" prefWidth="140.0" text="Medical Tests">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="button4" layoutX="169.0" layoutY="120.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Medicines">
+            <Button fx:id="button4" layoutX="169.0" layoutY="120.0" mnemonicParsing="false" onAction="#md" prefHeight="30.0" prefWidth="140.0" text="Medicines">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="button2" layoutX="169.0" layoutY="67.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Admin Panel">
+            <Button fx:id="button2" layoutX="169.0" layoutY="67.0" mnemonicParsing="false" onAction="#ap" prefHeight="30.0" prefWidth="140.0" text="Admin Panel">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
