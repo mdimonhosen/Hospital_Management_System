@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package p_hms;
 
 import java.net.URL;
@@ -15,11 +11,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Admin
- */
 public class BillGenerationController implements Initializable {
 
     @FXML
@@ -65,28 +56,46 @@ public class BillGenerationController implements Initializable {
     @FXML
     private TextField tfTOTALPAYABLEAMMOUNT;
 
-    /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // Initialization if needed
     }    
 
     @FXML
     private void generatebillbutton(ActionEvent event) {
+        try {
+            double medicineCost = Double.parseDouble(tfTOTALMEDICINESCOST.getText());
+            double testCost = Double.parseDouble(tfTOTALTESTSCOST.getText());
+            double roomBill = Double.parseDouble(tfROOMBILL.getText());
+            double otherCharges = Double.parseDouble(tfOTHERCHARGES.getText());
+
+            double total = medicineCost + testCost + roomBill + otherCharges;
+            tfTOTALPAYABLEAMMOUNT.setText(String.format("%.2f", total));
+        } catch (NumberFormatException e) {
+            tfTOTALPAYABLEAMMOUNT.setText("Error: Invalid input");
+        }
     }
 
     @FXML
     private void clearbutton(ActionEvent event) {
+        tfID.clear();
+        tfNAME.clear();
+        tfGENDER.clear();
+        tfADDRESS.clear();
+        tfDISEASECTREATED.clear();
+        tfTOTALMEDICINESCOST.clear();
+        tfTOTALTESTSCOST.clear();
+        tfROOMBILL.clear();
+        tfOTHERCHARGES.clear();
+        tfTOTALPAYABLEAMMOUNT.clear();
+
+        tableview1.getItems().clear();
+        tableview2.getItems().clear();
     }
 
     @FXML
     private void back(ActionEvent event) {
-          Stage stage = (Stage) button1.getScene().getWindow();
+        Stage stage = (Stage) button1.getScene().getWindow();
         stage.close();
     }
-    
 }
