@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -34,8 +35,11 @@
          </font>
       </Label>
       <Label layoutX="48.0" layoutY="113.0" />
-      <RadioButton layoutX="35.0" layoutY="80.0" mnemonicParsing="false" text="Name" />
-      <RadioButton layoutX="35.0" layoutY="105.0" mnemonicParsing="false" text="Employee ID" />
+      <RadioButton fx:id="rb1" layoutX="35.0" layoutY="80.0" mnemonicParsing="false" text="Name">
+         <toggleGroup>
+            <ToggleGroup fx:id="radio" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="rb2" layoutX="35.0" layoutY="105.0" mnemonicParsing="false" text="Employee ID" toggleGroup="$radio" />
       <TextField layoutX="35.0" layoutY="130.0" />
       <Label layoutX="403.0" layoutY="57.0" text="Contact Info: ">
          <font>

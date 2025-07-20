@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -46,9 +47,12 @@
                         <TextField layoutX="106.0" layoutY="89.0" prefHeight="25.0" prefWidth="74.0" promptText="First Name" />
                         <TextField layoutX="187.0" layoutY="89.0" prefHeight="25.0" prefWidth="70.0" promptText="Last name" />
                         <Label layoutX="28.0" layoutY="116.0" text="Gender" />
-                        <RadioButton layoutX="85.0" layoutY="117.0" mnemonicParsing="false" text="Male" />
-                        <RadioButton layoutX="198.0" layoutY="117.0" mnemonicParsing="false" text="Others" />
-                        <RadioButton layoutX="136.0" layoutY="117.0" mnemonicParsing="false" text="Female" />
+                        <RadioButton fx:id="rb1" layoutX="85.0" layoutY="117.0" mnemonicParsing="false" text="Male">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="radio" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="rb3" layoutX="198.0" layoutY="117.0" mnemonicParsing="false" text="Others" toggleGroup="$radio" />
+                        <RadioButton fx:id="rb2" layoutX="136.0" layoutY="117.0" mnemonicParsing="false" text="Female" toggleGroup="$radio" />
                         <Label layoutX="29.0" layoutY="142.0" text="Date of Birth" />
                         <TextField layoutX="106.0" layoutY="137.0" />
                         <Label layoutX="29.0" layoutY="167.0" text="Blood Group" />

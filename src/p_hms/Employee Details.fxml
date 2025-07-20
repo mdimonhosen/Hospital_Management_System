@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -31,9 +32,12 @@
       <Label layoutX="23.0" layoutY="131.0" text="Middle Name" />
       <Label layoutX="24.0" layoutY="159.0" text="Last Name" />
       <Label layoutX="23.0" layoutY="185.0" text="Gender" />
-      <RadioButton layoutX="75.0" layoutY="186.0" mnemonicParsing="false" text="Male" />
-      <RadioButton layoutX="127.0" layoutY="186.0" mnemonicParsing="false" text="Female" />
-      <RadioButton layoutX="191.0" layoutY="186.0" mnemonicParsing="false" text="Others" />
+      <RadioButton fx:id="rb1" layoutX="75.0" layoutY="186.0" mnemonicParsing="false" text="Male">
+         <toggleGroup>
+            <ToggleGroup fx:id="radio" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="rb2" layoutX="127.0" layoutY="186.0" mnemonicParsing="false" text="Female" toggleGroup="$radio" />
+      <RadioButton fx:id="rb3" layoutX="191.0" layoutY="186.0" mnemonicParsing="false" text="Others" toggleGroup="$radio" />
       <Label layoutX="24.0" layoutY="211.0" text="Date Of Birth" />
       <TextField layoutX="99.0" layoutY="207.0" />
       <Label layoutX="23.0" layoutY="55.0" text="Employee ID">

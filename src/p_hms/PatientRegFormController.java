@@ -10,6 +10,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 /**
@@ -31,6 +33,14 @@ public class PatientRegFormController implements Initializable {
     private Button button5;
     @FXML
     private Button button6;
+    @FXML
+    private RadioButton rb1;
+    @FXML
+    private ToggleGroup radio;
+    @FXML
+    private RadioButton rb3;
+    @FXML
+    private RadioButton rb2;
 
     /**
      * Initializes the controller class.

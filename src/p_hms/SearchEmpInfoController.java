@@ -10,6 +10,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 /**
@@ -25,6 +27,12 @@ public class SearchEmpInfoController implements Initializable {
     private Button button2;
     @FXML
     private Button button3;
+    @FXML
+    private RadioButton rb1;
+    @FXML
+    private ToggleGroup radio;
+    @FXML
+    private RadioButton rb2;
 
     /**
      * Initializes the controller class.
