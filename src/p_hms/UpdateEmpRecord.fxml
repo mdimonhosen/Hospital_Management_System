@@ -16,7 +16,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button2" layoutX="281.0" layoutY="436.0" mnemonicParsing="false" onAction="#update" text="Update">
+      <Button fx:id="buttonUpdate" layoutX="281.0" layoutY="436.0" mnemonicParsing="false" onAction="#update" text="Update">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -31,7 +31,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="133.0" layoutY="52.0" />
+      <TextField fx:id="tfID" layoutX="133.0" layoutY="52.0" />
       <Label layoutX="22.0" layoutY="85.0" text="Basic Info:">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -43,9 +43,9 @@
          </font>
       </Label>
       <Label layoutX="24.0" layoutY="107.0" text="Name" />
-      <TextField layoutX="97.0" layoutY="103.0" promptText="First Name" />
-      <TextField layoutX="97.0" layoutY="130.0" promptText="Middle Name" />
-      <TextField layoutX="97.0" layoutY="158.0" promptText="Last Name" />
+      <TextField fx:id="tfFirstName" layoutX="97.0" layoutY="103.0" promptText="First Name" />
+      <TextField fx:id="tfMiddleName" layoutX="97.0" layoutY="130.0" promptText="Middle Name" />
+      <TextField fx:id="tfLastName" layoutX="97.0" layoutY="158.0" promptText="Last Name" />
       <Label layoutX="23.0" layoutY="184.0" text="Gender" />
       <RadioButton fx:id="rb1" layoutX="76.0" layoutY="185.0" mnemonicParsing="false" text="Male">
          <toggleGroup>
@@ -54,13 +54,13 @@
       <RadioButton fx:id="rb2" layoutX="127.0" layoutY="185.0" mnemonicParsing="false" text="Female" toggleGroup="$radio" />
       <RadioButton fx:id="rb3" layoutX="189.0" layoutY="185.0" mnemonicParsing="false" text="Others" toggleGroup="$radio" />
       <Label layoutX="23.0" layoutY="212.0" text="Date of Birth" />
-      <TextField layoutX="97.0" layoutY="207.0" />
+      <TextField fx:id="tfDateOfBirth" layoutX="97.0" layoutY="207.0" />
       <Label layoutX="346.0" layoutY="108.0" text="Employee Type" />
-      <ComboBox layoutX="446.0" layoutY="103.0" prefWidth="150.0" promptText="Doctor" />
+      <ComboBox fx:id="comboBoxEmployeeType" layoutX="446.0" layoutY="103.0" prefWidth="150.0" promptText="Select" />
       <Label layoutX="347.0" layoutY="136.0" text="Department" />
-      <ComboBox layoutX="446.0" layoutY="132.0" prefWidth="150.0" promptText="Allergy" />
+      <ComboBox fx:id="comboBoxDepartment" layoutX="446.0" layoutY="132.0" prefWidth="150.0" promptText="Select" />
       <Label layoutX="348.0" layoutY="165.0" text="Date of Joining" />
-      <TextField layoutX="446.0" layoutY="161.0" />
+      <TextField fx:id="tfDateOfJoining" layoutX="446.0" layoutY="161.0" />
       <Label layoutX="28.0" layoutY="256.0" text="Address Details:">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -70,10 +70,10 @@
       <Label layoutX="29.0" layoutY="300.0" text="Street" />
       <Label layoutX="31.0" layoutY="328.0" text="City" />
       <Label layoutX="32.0" layoutY="353.0" text="State" />
-      <TextField layoutX="119.0" layoutY="269.0" />
-      <TextField layoutX="119.0" layoutY="296.0" />
-      <TextField layoutX="119.0" layoutY="323.0" />
-      <TextField layoutX="119.0" layoutY="349.0" />
+      <TextField fx:id="tfHouseNo" layoutX="119.0" layoutY="269.0" />
+      <TextField fx:id="tfStreet" layoutX="119.0" layoutY="296.0" />
+      <TextField fx:id="tfCity" layoutX="119.0" layoutY="323.0" />
+      <TextField fx:id="tfState" layoutX="119.0" layoutY="349.0" />
       <Label layoutX="345.0" layoutY="256.0" text="Contact Info:">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -82,8 +82,8 @@
       <Label layoutX="345.0" layoutY="274.0" text="Phone No.1" />
       <Label layoutX="348.0" layoutY="300.0" prefHeight="17.0" prefWidth="62.0" text="Phone No.2" />
       <Label layoutX="351.0" layoutY="328.0" prefHeight="17.0" prefWidth="62.0" text="Email" />
-      <TextField layoutX="427.0" layoutY="269.0" />
-      <TextField layoutX="427.0" layoutY="296.0" />
-      <TextField layoutX="427.0" layoutY="324.0" />
+      <TextField fx:id="tfPhoneNo1" layoutX="427.0" layoutY="269.0" />
+      <TextField fx:id="tfPhoneNo2" layoutX="427.0" layoutY="296.0" />
+      <TextField fx:id="tfEmail" layoutX="427.0" layoutY="324.0" />
    </children>
 </AnchorPane>

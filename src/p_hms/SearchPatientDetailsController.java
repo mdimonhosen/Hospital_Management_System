@@ -11,6 +11,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
@@ -22,17 +25,37 @@ import javafx.stage.Stage;
 public class SearchPatientDetailsController implements Initializable {
 
     @FXML
-    private Button button2;
-    @FXML
     private Button button1;
-    @FXML
-    private Button button3;
     @FXML
     private RadioButton rb1;
     @FXML
     private ToggleGroup radio;
     @FXML
     private RadioButton rb2;
+    @FXML
+    private TextField tfNameOrID;
+    @FXML
+    private Button buttonSearch;
+    @FXML
+    private Button buttonClear;
+    @FXML
+    private TableView<?> tableview;
+    @FXML
+    private TableColumn<?, ?> colPatientID;
+    @FXML
+    private TableColumn<?, ?> colPatientName;
+    @FXML
+    private TableColumn<?, ?> colGender;
+    @FXML
+    private TableColumn<?, ?> colAddress;
+    @FXML
+    private TableColumn<?, ?> colDoctorAssigned;
+    @FXML
+    private TableColumn<?, ?> colRoomAdmitted;
+    @FXML
+    private TableColumn<?, ?> colDoctorAdmitted;
+    @FXML
+    private TableColumn<?, ?> colDateDischarged;
 
     /**
      * Initializes the controller class.

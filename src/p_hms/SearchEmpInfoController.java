@@ -11,6 +11,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
@@ -24,15 +27,39 @@ public class SearchEmpInfoController implements Initializable {
     @FXML
     private Button button1;
     @FXML
-    private Button button2;
-    @FXML
-    private Button button3;
-    @FXML
     private RadioButton rb1;
     @FXML
     private ToggleGroup radio;
     @FXML
     private RadioButton rb2;
+    @FXML
+    private TableView<?> tableview;
+    @FXML
+    private TableColumn<?, ?> colEmpID;
+    @FXML
+    private TableColumn<?, ?> colName;
+    @FXML
+    private TableColumn<?, ?> colGender;
+    @FXML
+    private TableColumn<?, ?> colAddress;
+    @FXML
+    private TableColumn<?, ?> colEmpType;
+    @FXML
+    private TableColumn<?, ?> colDateOfJoining;
+    @FXML
+    private TableColumn<?, ?> colDeptName;
+    @FXML
+    private TableColumn<?, ?> colSalary;
+    @FXML
+    private TextField tfNameOrEmployeeID;
+    @FXML
+    private TextField tfPnoneNumber;
+    @FXML
+    private TextField tfEmail;
+    @FXML
+    private Button buttonsave;
+    @FXML
+    private Button buttonclear;
 
     /**
      * Initializes the controller class.

@@ -19,19 +19,19 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <ComboBox layoutX="331.0" layoutY="93.0" prefWidth="150.0" promptText="Doctor" />
-      <TextField layoutX="332.0" layoutY="136.0" />
+      <ComboBox fx:id="comboBoxSelectEmployeeType" layoutX="331.0" layoutY="93.0" prefWidth="150.0" promptText="Select" />
+      <TextField fx:id="tfOldSalary" layoutX="332.0" layoutY="136.0" />
       <Button fx:id="button1" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#back" text="Back">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button2" layoutX="162.0" layoutY="310.0" mnemonicParsing="false" onAction="#save" text="Done">
+      <Button fx:id="buttonSave" layoutX="162.0" layoutY="310.0" mnemonicParsing="false" onAction="#save" text="Save">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button3" layoutX="384.0" layoutY="310.0" mnemonicParsing="false" onAction="#clear" text="Clear">
+      <Button fx:id="buttonClear" layoutX="384.0" layoutY="310.0" mnemonicParsing="false" onAction="#clear" text="Clear">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -51,7 +51,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="332.0" layoutY="176.0" />
-      <TextField layoutX="332.0" layoutY="216.0" />
+      <TextField fx:id="tfPercentChange" layoutX="332.0" layoutY="176.0" />
+      <TextField fx:id="tfNewSalary" layoutX="332.0" layoutY="216.0" />
    </children>
 </AnchorPane>

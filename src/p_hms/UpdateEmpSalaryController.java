@@ -10,6 +10,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -22,9 +24,17 @@ public class UpdateEmpSalaryController implements Initializable {
     @FXML
     private Button button1;
     @FXML
-    private Button button2;
+    private ComboBox<?> comboBoxSelectEmployeeType;
     @FXML
-    private Button button3;
+    private TextField tfOldSalary;
+    @FXML
+    private Button buttonSave;
+    @FXML
+    private Button buttonClear;
+    @FXML
+    private TextField tfPercentChange;
+    @FXML
+    private TextField tfNewSalary;
 
     /**
      * Initializes the controller class.

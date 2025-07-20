@@ -16,12 +16,12 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button2" layoutX="259.0" layoutY="348.0" mnemonicParsing="false" onAction="#save" text="Save Details">
+      <Button fx:id="buttonSave" layoutX="259.0" layoutY="348.0" mnemonicParsing="false" onAction="#save" text="Save Details">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button3" layoutX="434.0" layoutY="336.0" mnemonicParsing="false" onAction="#clear" text="Clean Fields">
+      <Button fx:id="buttonClear" layoutX="434.0" layoutY="336.0" mnemonicParsing="false" onAction="#clear" text="Clean Fields">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -36,17 +36,17 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="133.0" layoutY="88.0" />
+      <TextField fx:id="tfID" layoutX="133.0" layoutY="88.0" />
       <Label layoutX="34.0" layoutY="150.0" text="Select Tests">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <ComboBox layoutX="133.0" layoutY="146.0" prefWidth="150.0" promptText="X-Ray" />
-      <TableView layoutX="328.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0">
+      <ComboBox fx:id="comboBoxSelectTest" layoutX="133.0" layoutY="146.0" prefWidth="150.0" promptText="Select" />
+      <TableView fx:id="tableView" layoutX="328.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
-          <TableColumn prefWidth="78.0" text="S_No." />
-          <TableColumn prefWidth="121.0" text="Test Name" />
+          <TableColumn fx:id="colS_NO" prefWidth="78.0" text="S_No." />
+          <TableColumn fx:id="colTestName" prefWidth="121.0" text="Test Name" />
         </columns>
       </TableView>
    </children>

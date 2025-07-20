@@ -10,6 +10,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -22,9 +25,45 @@ public class BillGenerationController implements Initializable {
     @FXML
     private Button button1;
     @FXML
-    private Button button2;
+    private Button buttonGenerateBill;
     @FXML
-    private Button button3;
+    private Button buttonClearFields;
+    @FXML
+    private TextField tfID;
+    @FXML
+    private TextField tfNAME;
+    @FXML
+    private TextField tfGENDER;
+    @FXML
+    private TextField tfADDRESS;
+    @FXML
+    private TextField tfDISEASECTREATED;
+    @FXML
+    private TableView<?> tableview2;
+    @FXML
+    private TableColumn<?, ?> colS_NO;
+    @FXML
+    private TableColumn<?, ?> colMEDICINENAME;
+    @FXML
+    private TableColumn<?, ?> colQUANTITY;
+    @FXML
+    private TableColumn<?, ?> colCOST;
+    @FXML
+    private TableColumn<?, ?> colTOTALCOST;
+    @FXML
+    private TextField tfTOTALMEDICINESCOST;
+    @FXML
+    private TableView<?> tableview1;
+    @FXML
+    private TableColumn<?, ?> colTESTNAME;
+    @FXML
+    private TextField tfTOTALTESTSCOST;
+    @FXML
+    private TextField tfROOMBILL;
+    @FXML
+    private TextField tfOTHERCHARGES;
+    @FXML
+    private TextField tfTOTALPAYABLEAMMOUNT;
 
     /**
      * Initializes the controller class.

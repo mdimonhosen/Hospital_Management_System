@@ -17,16 +17,16 @@
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <TableView layoutX="10.0" layoutY="161.0" prefHeight="200.0" prefWidth="651.0">
+      <TableView fx:id="tableview" layoutX="10.0" layoutY="161.0" prefHeight="200.0" prefWidth="651.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Emp ID" />
-          <TableColumn prefWidth="75.0" text="Name" />
-            <TableColumn prefWidth="75.0" text="Gender" />
-            <TableColumn prefWidth="75.0" text="Address" />
-            <TableColumn prefWidth="75.0" text="Emp Type" />
-            <TableColumn prefWidth="95.0" text="Date od Joining" />
-            <TableColumn prefWidth="95.0" text="Dept Name" />
-            <TableColumn prefWidth="95.0" text="Salary" />
+          <TableColumn fx:id="colEmpID" prefWidth="75.0" text="Emp ID" />
+          <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="colGender" prefWidth="75.0" text="Gender" />
+            <TableColumn fx:id="colAddress" prefWidth="75.0" text="Address" />
+            <TableColumn fx:id="colEmpType" prefWidth="75.0" text="Emp Type" />
+            <TableColumn fx:id="colDateOfJoining" prefWidth="95.0" text="Date of Joining" />
+            <TableColumn fx:id="colDeptName" prefWidth="95.0" text="Dept Name" />
+            <TableColumn fx:id="colSalary" prefWidth="95.0" text="Salary" />
         </columns>
       </TableView>
       <Label layoutX="35.0" layoutY="57.0" text="Search By:">
@@ -40,7 +40,7 @@
             <ToggleGroup fx:id="radio" />
          </toggleGroup></RadioButton>
       <RadioButton fx:id="rb2" layoutX="35.0" layoutY="105.0" mnemonicParsing="false" text="Employee ID" toggleGroup="$radio" />
-      <TextField layoutX="35.0" layoutY="130.0" />
+      <TextField fx:id="tfNameOrEmployeeID" layoutX="35.0" layoutY="130.0" />
       <Label layoutX="403.0" layoutY="57.0" text="Contact Info: ">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -48,19 +48,19 @@
       </Label>
       <Label layoutX="403.0" layoutY="80.0" text="Phone" />
       <Label layoutX="405.0" layoutY="108.0" text="Email" />
-      <TextField layoutX="480.0" layoutY="76.0" />
-      <TextField layoutX="480.0" layoutY="104.0" />
+      <TextField fx:id="tfPnoneNumber" layoutX="480.0" layoutY="76.0" />
+      <TextField fx:id="tfEmail" layoutX="480.0" layoutY="104.0" />
       <Button fx:id="button1" layoutX="22.0" layoutY="19.0" mnemonicParsing="false" onAction="#back" text="Back">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button2" layoutX="249.0" layoutY="367.0" mnemonicParsing="false" onAction="#save" text="Save">
+      <Button fx:id="buttonsave" layoutX="249.0" layoutY="367.0" mnemonicParsing="false" onAction="#save" text="Save">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button3" layoutX="389.0" layoutY="367.0" mnemonicParsing="false" onAction="#clear" text="Clear">
+      <Button fx:id="buttonclear" layoutX="389.0" layoutY="367.0" mnemonicParsing="false" onAction="#clear" text="Clear">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

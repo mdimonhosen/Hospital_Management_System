@@ -28,8 +28,8 @@
             <ToggleGroup fx:id="radio" />
          </toggleGroup></RadioButton>
       <RadioButton fx:id="rb2" layoutX="55.0" layoutY="112.0" mnemonicParsing="false" text="Patient ID" toggleGroup="$radio" />
-      <TextField layoutX="140.0" layoutY="95.0" />
-      <Button fx:id="button2" layoutX="114.0" layoutY="139.0" mnemonicParsing="false" onAction="#search" text="Search">
+      <TextField fx:id="tfNameOrID" layoutX="140.0" layoutY="95.0" />
+      <Button fx:id="buttonSearch" layoutX="114.0" layoutY="139.0" mnemonicParsing="false" onAction="#search" text="Search">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -39,21 +39,21 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="button3" layoutX="342.0" layoutY="139.0" mnemonicParsing="false" onAction="#clear" text="Clear Fields">
+      <Button fx:id="buttonClear" layoutX="342.0" layoutY="139.0" mnemonicParsing="false" onAction="#clear" text="Clear Fields">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TableView layoutX="13.0" layoutY="188.0" prefHeight="200.0" prefWidth="684.0">
+      <TableView fx:id="tableview" layoutX="13.0" layoutY="188.0" prefHeight="200.0" prefWidth="684.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Patient ID" />
-          <TableColumn prefWidth="84.0" text="Patient Name" />
-            <TableColumn prefWidth="54.0" text="Gender" />
-            <TableColumn prefWidth="54.0" text="Address" />
-            <TableColumn prefWidth="98.0" text="Doctor Assigned" />
-            <TableColumn prefWidth="97.0" text="Room Admitted" />
-            <TableColumn prefWidth="110.0" text="Doctor Admitted" />
-            <TableColumn prefWidth="110.0" text="Date Dischargedl" />
+          <TableColumn fx:id="colPatientID" prefWidth="75.0" text="Patient ID" />
+          <TableColumn fx:id="colPatientName" prefWidth="84.0" text="Patient Name" />
+            <TableColumn fx:id="colGender" prefWidth="54.0" text="Gender" />
+            <TableColumn fx:id="colAddress" prefWidth="54.0" text="Address" />
+            <TableColumn fx:id="colDoctorAssigned" prefWidth="98.0" text="Doctor Assigned" />
+            <TableColumn fx:id="colRoomAdmitted" prefWidth="97.0" text="Room Admitted" />
+            <TableColumn fx:id="colDoctorAdmitted" prefWidth="110.0" text="Doctor Admitted" />
+            <TableColumn fx:id="colDateDischarged" prefWidth="110.0" text="Date Discharged" />
         </columns>
       </TableView>
    </children>

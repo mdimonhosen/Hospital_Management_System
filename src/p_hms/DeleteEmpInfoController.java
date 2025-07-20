@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -22,9 +23,13 @@ public class DeleteEmpInfoController implements Initializable {
     @FXML
     private Button button1;
     @FXML
-    private Button button3;
+    private Button buttonClearFields;
     @FXML
-    private Button button2;
+    private Button buttonDeleteRecord;
+    @FXML
+    private TextField tfID;
+    @FXML
+    private TextField tfNAME;
 
     /**
      * Initializes the controller class.

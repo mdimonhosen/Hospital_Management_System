@@ -10,7 +10,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
@@ -24,10 +26,6 @@ public class EmployeeDetailsController implements Initializable {
     @FXML
     private Button button1;
     @FXML
-    private Button button2;
-    @FXML
-    private Button button3;
-    @FXML
     private RadioButton rb1;
     @FXML
     private ToggleGroup radio;
@@ -35,6 +33,40 @@ public class EmployeeDetailsController implements Initializable {
     private RadioButton rb2;
     @FXML
     private RadioButton rb3;
+    @FXML
+    private TextField tfID;
+    @FXML
+    private TextField tfFirstName;
+    @FXML
+    private TextField tfDateOfBirthday;
+    @FXML
+    private ComboBox<?> comboBoxEmployeeType;
+    @FXML
+    private ComboBox<?> comboBoxDepartment;
+    @FXML
+    private TextField tfDateOfJoining;
+    @FXML
+    private TextField tfMiddleName;
+    @FXML
+    private TextField tfLastName;
+    @FXML
+    private TextField tfHouseNo;
+    @FXML
+    private TextField tfStreet;
+    @FXML
+    private TextField tfCity;
+    @FXML
+    private TextField tfState;
+    @FXML
+    private TextField tfMobileNo1;
+    @FXML
+    private TextField tfMobileNo2;
+    @FXML
+    private TextField tfEmailAddress;
+    @FXML
+    private Button buttonSAVE;
+    @FXML
+    private Button buttonClear;
 
     /**
      * Initializes the controller class.
