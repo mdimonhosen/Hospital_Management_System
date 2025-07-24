@@ -1,76 +1,35 @@
 package p_hms;
 
 import java.net.URL;
+import java.sql.*;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class SearchPatientDetailsController implements Initializable {
 
-    @FXML
-    private Button button1;  // Back button
+    @FXML private Button button1, buttonSearch, buttonClear;
+    @FXML private RadioButton rb1, rb2; // rb1: Name, rb2: ID
+    @FXML private ToggleGroup radio;
+    @FXML private TextField tfNameOrID;
+    @FXML private TableView<Patient> tableview;
+    @FXML private TableColumn<Patient, String> colPatientID, colPatientName, colGender, colAddress;
+    @FXML private TableColumn<Patient, String> colDoctorAssigned, colRoomAdmitted, colDoctorAdmitted, colDateDischarged;
 
-    @FXML
-    private RadioButton rb1; // Search by Name
-
-    @FXML
-    private ToggleGroup radio;
-
-    @FXML
-    private RadioButton rb2; // Search by ID
-
-    @FXML
-    private TextField tfNameOrID;
-
-    @FXML
-    private Button buttonSearch;
-
-    @FXML
-    private Button buttonClear;
-
-    @FXML
-    private TableView<Patient> tableview;
-
-    @FXML
-    private TableColumn<Patient, String> colPatientID;
-
-    @FXML
-    private TableColumn<Patient, String> colPatientName;
-
-    @FXML
-    private TableColumn<Patient, String> colGender;
-
-    @FXML
-    private TableColumn<Patient, String> colAddress;
-
-    @FXML
-    private TableColumn<Patient, String> colDoctorAssigned;
-
-    @FXML
-    private TableColumn<Patient, String> colRoomAdmitted;
-
-    @FXML
-    private TableColumn<Patient, String> colDoctorAdmitted;
-
-    @FXML
-    private TableColumn<Patient, String> colDateDischarged;
+    private final String DB_URL = "jdbc:mysql://localhost:3306/p_hms";
+    private final String DB_USER = "root";
+    private final String DB_PASS = "";
 
     private ObservableList<Patient> allPatients = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Initialize table columns with Patient properties
         colPatientID.setCellValueFactory(new PropertyValueFactory<>("patientID"));
         colPatientName.setCellValueFactory(new PropertyValueFactory<>("patientName"));
         colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
@@ -80,50 +39,96 @@ public class SearchPatientDetailsController implements Initializable {
         colDoctorAdmitted.setCellValueFactory(new PropertyValueFactory<>("doctorAdmitted"));
         colDateDischarged.setCellValueFactory(new PropertyValueFactory<>("dateDischarged"));
 
-        // Add sample patients
-        allPatients.addAll(
-                new Patient("P001", "Alice", "Female", "123 St", "Dr. Smith", "101", "Dr. Adams", "2025-07-10"),
-                new Patient("P002", "Bob", "Male", "456 Ave", "Dr. Jones", "102", "Dr. Baker", "2025-07-15"),
-                new Patient("P003", "Charlie", "Male", "789 Blvd", "Dr. Smith", "103", "Dr. Clark", "2025-07-20")
-        );
+        rb1.setSelected(true);
+        loadAllPatientsFromDB();
+    }
 
-        // Display all patients initially
-        tableview.setItems(allPatients);
-        rb1.setSelected(true);  // Default select search by Name
+    private void loadAllPatientsFromDB() {
+        allPatients.clear();
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM SearchPatientDetails")) {
+
+            while (rs.next()) {
+                Patient p = new Patient(
+                        rs.getString("patient_id"),
+                        rs.getString("patient_name"),
+                        rs.getString("gender"),
+                        rs.getString("address"),
+                        rs.getString("doctor_assigned"),
+                        rs.getString("room_admitted"),
+                        rs.getString("doctor_admitted"),
+                        rs.getString("date_discharged")
+                );
+                allPatients.add(p);
+            }
+            tableview.setItems(allPatients);
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Database Load Error: " + e.getMessage());
+        }
     }
 
     @FXML
     private void search(ActionEvent event) {
-        String searchText = tfNameOrID.getText().trim().toLowerCase();
+        String searchText = tfNameOrID.getText().trim();
+
         if (searchText.isEmpty()) {
-            tableview.setItems(allPatients); // Show all if search is empty
+            loadAllPatientsFromDB();
             return;
         }
-        ObservableList<Patient> filteredList = FXCollections.observableArrayList();
 
-        if (rb1.isSelected()) {
-            // Search by Name
-            for (Patient p : allPatients) {
-                if (p.getPatientName().toLowerCase().contains(searchText)) {
-                    filteredList.add(p);
-                }
+        ObservableList<Patient> filteredList = FXCollections.observableArrayList();
+        String sql;
+
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+            PreparedStatement stmt;
+
+            if (rb1.isSelected()) {
+                sql = "SELECT * FROM SearchPatientDetails WHERE patient_name LIKE ?";
+                stmt = conn.prepareStatement(sql);
+                stmt.setString(1, "%" + searchText + "%");
+
+            } else if (rb2.isSelected()) {
+                sql = "SELECT * FROM SearchPatientDetails WHERE patient_id LIKE ?";
+                stmt = conn.prepareStatement(sql);
+                stmt.setString(1, "%" + searchText + "%");
+
+            } else {
+                showAlert(Alert.AlertType.WARNING, "Select Name or ID search option.");
+                return;
             }
-        } else if (rb2.isSelected()) {
-            // Search by ID
-            for (Patient p : allPatients) {
-                if (p.getPatientID().toLowerCase().contains(searchText)) {
-                    filteredList.add(p);
-                }
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Patient p = new Patient(
+                        rs.getString("patient_id"),
+                        rs.getString("patient_name"),
+                        rs.getString("gender"),
+                        rs.getString("address"),
+                        rs.getString("doctor_assigned"),
+                        rs.getString("room_admitted"),
+                        rs.getString("doctor_admitted"),
+                        rs.getString("date_discharged")
+                );
+                filteredList.add(p);
             }
+
+            if (filteredList.isEmpty()) {
+                showAlert(Alert.AlertType.INFORMATION, "No matching patient found.");
+            }
+
+            tableview.setItems(filteredList);
+
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Search Error: " + e.getMessage());
         }
-        tableview.setItems(filteredList);
     }
 
     @FXML
     private void clear(ActionEvent event) {
         tfNameOrID.clear();
-        tableview.setItems(allPatients);
-        rb1.setSelected(true);  // Reset radio button selection to Name
+        rb1.setSelected(true);
+        loadAllPatientsFromDB();
     }
 
     @FXML
@@ -132,7 +137,14 @@ public class SearchPatientDetailsController implements Initializable {
         stage.close();
     }
 
-    // Sample Patient model class
+    private void showAlert(Alert.AlertType type, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle("Search Patient Details");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
     public static class Patient {
         private final String patientID;
         private final String patientName;
@@ -155,36 +167,13 @@ public class SearchPatientDetailsController implements Initializable {
             this.dateDischarged = dateDischarged;
         }
 
-        public String getPatientID() {
-            return patientID;
-        }
-
-        public String getPatientName() {
-            return patientName;
-        }
-
-        public String getGender() {
-            return gender;
-        }
-
-        public String getAddress() {
-            return address;
-        }
-
-        public String getDoctorAssigned() {
-            return doctorAssigned;
-        }
-
-        public String getRoomAdmitted() {
-            return roomAdmitted;
-        }
-
-        public String getDoctorAdmitted() {
-            return doctorAdmitted;
-        }
-
-        public String getDateDischarged() {
-            return dateDischarged;
-        }
+        public String getPatientID() { return patientID; }
+        public String getPatientName() { return patientName; }
+        public String getGender() { return gender; }
+        public String getAddress() { return address; }
+        public String getDoctorAssigned() { return doctorAssigned; }
+        public String getRoomAdmitted() { return roomAdmitted; }
+        public String getDoctorAdmitted() { return doctorAdmitted; }
+        public String getDateDischarged() { return dateDischarged; }
     }
 }
