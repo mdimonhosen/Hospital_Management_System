@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p_hms.PatientsMedicineController">
+   <children>
+      <Button fx:id="button1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="Back">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="165.0" layoutY="20.0" text="Pharmaceutical Store" textFill="#0c26eb">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableview" layoutX="38.0" layoutY="149.0" prefHeight="160.0" prefWidth="513.0">
+        <columns>
+          <TableColumn fx:id="colS_No" prefWidth="144.0" text="S_No." />
+          <TableColumn fx:id="colMedicineName" prefWidth="217.0" text="Medicine Name" />
+            <TableColumn fx:id="colQuantity" prefWidth="151.0" text="Quantity" />
+        </columns>
+      </TableView>
+      <Label layoutX="40.0" layoutY="88.0" text="Patient ID">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfID" layoutX="139.0" layoutY="84.0" />
+      <Label layoutX="347.0" layoutY="88.0" text="Date">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfDate" layoutX="402.0" layoutY="84.0" />
+      <Label layoutX="345.0" layoutY="115.0" text="Quantity">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfQuantity" layoutX="402.0" layoutY="113.0" />
+      <Label layoutX="39.0" layoutY="118.0" text="Select Medicine">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboBoxSelectMedicine" layoutX="139.0" layoutY="116.0" prefWidth="150.0" promptText="Select" />
+      <Button fx:id="buttonSave" layoutX="279.0" layoutY="349.0" mnemonicParsing="false" onAction="#save" text="Save">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonClear" layoutX="506.0" layoutY="349.0" mnemonicParsing="false" onAction="#clear" text="Clear">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

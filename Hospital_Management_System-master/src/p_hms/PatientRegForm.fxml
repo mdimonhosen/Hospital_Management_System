@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p_hms.PatientRegFormController">
+   <children>
+      <TabPane prefHeight="412.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Patient Details">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="360.0" prefWidth="575.0">
+                     <children>
+                        <TextField fx:id="tfID" layoutX="106.0" layoutY="38.0" />
+                        <Label layoutX="39.0" layoutY="42.0" text="Patient ID">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="button1" layoutX="7.0" layoutY="5.0" mnemonicParsing="false" onAction="#back" text="Back">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
+                        <Button fx:id="buttonSavePD" layoutX="256.0" layoutY="339.0" mnemonicParsing="false" onAction="#save" text="Save Details">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
+                        <Button fx:id="buttonClearPD" layoutX="420.0" layoutY="326.0" mnemonicParsing="false" onAction="#clear" text="Clean Fields">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
+                        <Label layoutX="28.0" layoutY="72.0" text="Basic Details:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="28.0" layoutY="93.0" text="Patient Name" />
+                        <TextField fx:id="tfFirstName" layoutX="106.0" layoutY="89.0" prefHeight="25.0" prefWidth="74.0" promptText="First Name" />
+                        <TextField fx:id="tfLastName" layoutX="187.0" layoutY="89.0" prefHeight="25.0" prefWidth="70.0" promptText="Last name" />
+                        <Label layoutX="28.0" layoutY="116.0" text="Gender" />
+                        <RadioButton fx:id="rb1" layoutX="85.0" layoutY="117.0" mnemonicParsing="false" text="Male">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="radio" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="rb3" layoutX="198.0" layoutY="117.0" mnemonicParsing="false" text="Others" toggleGroup="$radio" />
+                        <RadioButton fx:id="rb2" layoutX="136.0" layoutY="117.0" mnemonicParsing="false" text="Female" toggleGroup="$radio" />
+                        <Label layoutX="29.0" layoutY="142.0" text="Date of Birth" />
+                        <TextField fx:id="tfDateOfBirthday" layoutX="106.0" layoutY="137.0" />
+                        <Label layoutX="29.0" layoutY="167.0" text="Blood Group" />
+                        <TextField fx:id="tfBloodGroup" layoutX="106.0" layoutY="164.0" />
+                        <Label layoutX="31.0" layoutY="190.0" text="Address Details:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="31.0" layoutY="209.0" text="House no." />
+                        <TextField fx:id="tfHouseNo" layoutX="106.0" layoutY="206.0" />
+                        <Label layoutX="32.0" layoutY="237.0" text="Street" />
+                        <TextField fx:id="tfStreet" layoutX="106.0" layoutY="234.0" />
+                        <Label layoutX="34.0" layoutY="265.0" text="City" />
+                        <TextField fx:id="tfCity" layoutX="106.0" layoutY="262.0" />
+                        <Label layoutX="37.0" layoutY="294.0" text="State" />
+                        <TextField fx:id="tfState" layoutX="106.0" layoutY="290.0" />
+                        <Label layoutX="319.0" layoutY="72.0" text="Other Details:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="321.0" layoutY="94.0" text="Phone No.1" />
+                        <Label layoutX="322.0" layoutY="124.0" text="Phone No.2" />
+                        <Label layoutX="322.0" layoutY="149.0" text="Email" />
+                        <TextField fx:id="tfPhoneNo1" layoutX="398.0" layoutY="90.0" />
+                        <TextField fx:id="tfPhoneNo2" layoutX="398.0" layoutY="118.0" />
+                        <TextField fx:id="tfEmail" layoutX="398.0" layoutY="146.0" />
+                        <Label layoutX="319.0" layoutY="190.0" text="Disease Info:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="319.0" layoutY="210.0" text="Problem" />
+                        <Label layoutX="319.0" layoutY="239.0" text="Referred Room" />
+                        <Label layoutX="319.0" layoutY="271.0" text="Referred Ward" />
+                        <TextField fx:id="tfReferredWaed" layoutX="400.0" layoutY="264.0" />
+                        <TextField fx:id="tfReferredRoom" layoutX="400.0" layoutY="234.0" />
+                        <ComboBox fx:id="comboBoxProblem" layoutX="399.0" layoutY="204.0" prefWidth="150.0" promptText="Select" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Inpatient Info">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="353.0" prefWidth="595.0">
+                     <children>
+                        <Label layoutX="21.0" layoutY="53.0" text="Enter Patient ID" />
+                        <ComboBox fx:id="comboBoxRoomType" layoutX="113.0" layoutY="105.0" prefWidth="150.0" promptText="Select" />
+                        <TextField fx:id="tfID" layoutX="114.0" layoutY="48.0" />
+                        <Button fx:id="button4" layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#back2" text="Back">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="buttonSaveIPI" layoutX="263.0" layoutY="336.0" mnemonicParsing="false" onAction="#save" text="Save Details">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="buttonClearIPI" layoutX="446.0" layoutY="311.0" mnemonicParsing="false" onAction="#clear" text="Clear Fields">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <TextArea fx:id="textAreaDiseaseAetails" layoutX="320.0" layoutY="60.0" prefHeight="72.0" prefWidth="251.0" />
+                        <TextField fx:id="tfRoomAssigned" layoutX="113.0" layoutY="155.0" />
+                        <Label layoutX="22.0" layoutY="80.0" text="Date Admitted" />
+                        <TextField fx:id="tfDateAdmitted" layoutX="114.0" layoutY="76.0" />
+                        <Label layoutX="23.0" layoutY="109.0" text="Room Type" />
+                        <Label layoutX="23.0" layoutY="137.0" text="Other Info:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="24.0" layoutY="160.0" text="Room Assigned" />
+                        <Label layoutX="24.0" layoutY="186.0" text="Nurse Assigned" />
+                        <TextField fx:id="tfNurseAssigned" layoutX="113.0" layoutY="183.0" />
+                        <Label layoutX="320.0" layoutY="18.0" />
+                        <Label layoutX="320.0" layoutY="40.0" text="Disease Details:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="320.0" layoutY="137.0" text="Relative Info:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="321.0" layoutY="159.0" text="Name" />
+                        <Label layoutX="322.0" layoutY="188.0" text="Relation" />
+                        <Label layoutX="323.0" layoutY="215.0" text="Phone No." />
+                        <TextField fx:id="tfRelativeName" layoutX="395.0" layoutY="155.0" />
+                        <TextField fx:id="tfRelativeRelation" layoutX="395.0" layoutY="183.0" />
+                        <TextField fx:id="tfRelativePhoneNo" layoutX="395.0" layoutY="211.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
