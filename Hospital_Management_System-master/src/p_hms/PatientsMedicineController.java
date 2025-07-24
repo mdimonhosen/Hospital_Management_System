@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 public class PatientsMedicineController implements Initializable {
 
     @FXML private Button button1, buttonSave, buttonClear;
-    @FXML private TableView<MedicineData> tableview;
+    @FXML private TableView<MedicineData> tableView;
     @FXML private TableColumn<MedicineData, Integer> colS_No;
     @FXML private TableColumn<MedicineData, String> colMedicineName;
     @FXML private TableColumn<MedicineData, Integer> colQuantity;
@@ -31,6 +31,7 @@ public class PatientsMedicineController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         comboBoxSelectMedicine.getItems().addAll("Paracetamol", "Antibiotic", "Insulin", "Cough Syrup");
+
         colS_No.setCellValueFactory(new PropertyValueFactory<>("id"));
         colMedicineName.setCellValueFactory(new PropertyValueFactory<>("medicineName"));
         colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
@@ -43,12 +44,12 @@ public class PatientsMedicineController implements Initializable {
 
     @FXML
     private void save(ActionEvent event) {
-        String patientId = tfID.getText();
+        String patientId = tfID.getText().trim();
         String medicine = comboBoxSelectMedicine.getValue();
-        String quantity = tfQuantity.getText();
-        String date = tfDate.getText(); // Format: yyyy-mm-dd
+        String quantityStr = tfQuantity.getText().trim();
+        String dateStr = tfDate.getText().trim(); // Format: yyyy-mm-dd expected
 
-        if (patientId.isEmpty() || medicine == null || quantity.isEmpty() || date.isEmpty()) {
+        if (patientId.isEmpty() || medicine == null || quantityStr.isEmpty() || dateStr.isEmpty()) {
             showAlert(Alert.AlertType.ERROR, "Please fill in all fields.");
             return;
         }
@@ -58,8 +59,8 @@ public class PatientsMedicineController implements Initializable {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, Integer.parseInt(patientId));
             stmt.setString(2, medicine);
-            stmt.setInt(3, Integer.parseInt(quantity));
-            stmt.setDate(4, Date.valueOf(date)); // must be yyyy-mm-dd
+            stmt.setInt(3, Integer.parseInt(quantityStr));
+            stmt.setDate(4, Date.valueOf(dateStr));  // yyyy-MM-dd format
 
             int rows = stmt.executeUpdate();
             if (rows > 0) {
@@ -78,7 +79,7 @@ public class PatientsMedicineController implements Initializable {
         tfQuantity.clear();
         tfDate.clear();
         comboBoxSelectMedicine.setValue(null);
-        tableview.getItems().clear();
+        tableView.getItems().clear();
     }
 
     private void loadMedicinesForPatient(int patientId) {
@@ -96,7 +97,7 @@ public class PatientsMedicineController implements Initializable {
                 medicineList.add(new MedicineData(id, name, qty));
             }
 
-            tableview.setItems(medicineList);
+            tableView.setItems(medicineList);
 
         } catch (Exception e) {
             showAlert(Alert.AlertType.ERROR, "Error loading medicines: " + e.getMessage());
@@ -111,7 +112,7 @@ public class PatientsMedicineController implements Initializable {
         alert.showAndWait();
     }
 
-    // Model class for TableView
+    // Model class for TableView rows
     public static class MedicineData {
         private final Integer id;
         private final String medicineName;
