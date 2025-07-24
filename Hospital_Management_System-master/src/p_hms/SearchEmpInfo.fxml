@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p_hms.SearchEmpInfoController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p_hms.SearchEmpInfoController">
    <children>
-      <Label layoutX="204.0" layoutY="14.0" text="Search Employee Details" textFill="#0a15eb">
+      <Label layoutX="280.0" layoutY="15.0" text="Search Employee Details" textFill="#0a15eb">
          <font>
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <TableView fx:id="tableview" layoutX="10.0" layoutY="161.0" prefHeight="200.0" prefWidth="651.0">
+      <TableView fx:id="tableview" layoutX="19.0" layoutY="161.0" prefHeight="200.0" prefWidth="850.0">
         <columns>
           <TableColumn fx:id="colEmpID" prefWidth="75.0" text="Emp ID" />
           <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
@@ -27,6 +27,8 @@
             <TableColumn fx:id="colDateOfJoining" prefWidth="95.0" text="Date of Joining" />
             <TableColumn fx:id="colDeptName" prefWidth="95.0" text="Dept Name" />
             <TableColumn fx:id="colSalary" prefWidth="95.0" text="Salary" />
+            <TableColumn fx:id="colPhone" prefWidth="95.0" text="Phone" />
+            <TableColumn fx:id="colEmail" prefWidth="95.0" text="Email" />
         </columns>
       </TableView>
       <Label layoutX="35.0" layoutY="57.0" text="Search By:">
@@ -35,36 +37,35 @@
          </font>
       </Label>
       <Label layoutX="48.0" layoutY="113.0" />
-      <RadioButton fx:id="rb1" layoutX="35.0" layoutY="80.0" mnemonicParsing="false" text="Name">
+      <RadioButton fx:id="rbName" layoutX="35.0" layoutY="80.0" mnemonicParsing="false" text="Name">
          <toggleGroup>
             <ToggleGroup fx:id="radio" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="rb2" layoutX="35.0" layoutY="105.0" mnemonicParsing="false" text="Employee ID" toggleGroup="$radio" />
+      <RadioButton fx:id="rbEmployeeID" layoutX="35.0" layoutY="105.0" mnemonicParsing="false" text="Employee ID" toggleGroup="$radio" />
       <TextField fx:id="tfNameOrEmployeeID" layoutX="35.0" layoutY="130.0" />
-      <Label layoutX="403.0" layoutY="57.0" text="Contact Info: ">
+      <Label layoutX="499.0" layoutY="57.0" text="Contact Info: ">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="403.0" layoutY="80.0" text="Phone" />
-      <Label layoutX="405.0" layoutY="108.0" text="Email" />
-      <TextField fx:id="tfPnoneNumber" layoutX="480.0" layoutY="76.0" />
-      <TextField fx:id="tfEmail" layoutX="480.0" layoutY="104.0" />
+      <TextField fx:id="tfPhoneOrEmail" layoutX="596.0" layoutY="93.0" />
       <Button fx:id="button1" layoutX="22.0" layoutY="19.0" mnemonicParsing="false" onAction="#back" text="Back">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="buttonsave" layoutX="249.0" layoutY="367.0" mnemonicParsing="false" onAction="#save" text="Save">
+      <Button fx:id="buttonSearch" layoutX="298.0" layoutY="367.0" mnemonicParsing="false" onAction="#search" text="Search">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="buttonclear" layoutX="389.0" layoutY="367.0" mnemonicParsing="false" onAction="#clear" text="Clear">
+      <Button fx:id="buttonclear" layoutX="492.0" layoutY="367.0" mnemonicParsing="false" onAction="#clear" text="Clear">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Label layoutX="330.0" layoutY="371.0" text="or" />
+      <Label layoutX="406.0" layoutY="371.0" text="or" />
+      <RadioButton fx:id="rbPhone" layoutX="517.0" layoutY="80.0" mnemonicParsing="false" text="Phone" toggleGroup="$radio" />
+      <RadioButton fx:id="rbEmail" layoutX="517.0" layoutY="105.0" mnemonicParsing="false" text="Email" toggleGroup="$radio" />
    </children>
 </AnchorPane>

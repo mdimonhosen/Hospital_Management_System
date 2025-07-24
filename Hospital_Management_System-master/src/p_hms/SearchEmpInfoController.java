@@ -13,16 +13,16 @@ import javafx.stage.Stage;
 
 public class SearchEmpInfoController implements Initializable {
 
-    @FXML private Button button1, buttonsave, buttonclear;
-    @FXML private RadioButton rb1, rb2;
+    @FXML private Button button1, buttonclear, buttonSearch;
     @FXML private ToggleGroup radio;
+    @FXML private RadioButton rbName, rbEmployeeID, rbPhone, rbEmail;
     @FXML private TableView<Employee> tableview;
     @FXML private TableColumn<Employee, Integer> colEmpID;
-    @FXML private TableColumn<Employee, String> colName, colGender, colAddress, colEmpType, colDeptName, colDateOfJoining;
+    @FXML private TableColumn<Employee, String> colName, colGender, colAddress, colEmpType, colDeptName, colDateOfJoining, colPhone, colEmail;
     @FXML private TableColumn<Employee, Double> colSalary;
-    @FXML private TextField tfNameOrEmployeeID, tfPnoneNumber, tfEmail;
+    @FXML private TextField tfNameOrEmployeeID, tfPhoneOrEmail;
 
-    private final String DB_URL = "jdbc:mysql://localhost:3306/hospital_db";
+    private final String DB_URL = "jdbc:mysql://localhost:3306/p_hms";
     private final String DB_USER = "root";
     private final String DB_PASS = "";
 
@@ -38,6 +38,8 @@ public class SearchEmpInfoController implements Initializable {
         colDateOfJoining.setCellValueFactory(new PropertyValueFactory<>("dateOfJoining"));
         colDeptName.setCellValueFactory(new PropertyValueFactory<>("deptName"));
         colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
+        colPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
 
         loadEmployeeData();
     }
@@ -49,53 +51,85 @@ public class SearchEmpInfoController implements Initializable {
     }
 
     @FXML
-    private void save(ActionEvent event) {
-        String input = tfNameOrEmployeeID.getText();
-        String phone = tfPnoneNumber.getText();
-        String email = tfEmail.getText();
-
-        if (input.isEmpty() || phone.isEmpty() || email.isEmpty()) {
-            showAlert(Alert.AlertType.WARNING, "Please fill all fields.");
-            return;
-        }
-
-        String gender = rb1.isSelected() ? "Male" : rb2.isSelected() ? "Female" : "";
-
-        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
-            String sql = "UPDATE Employees SET phone=?, email=?, gender=? WHERE emp_id=? OR name=?";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, phone);
-            stmt.setString(2, email);
-            stmt.setString(3, gender);
-            stmt.setString(4, input); // assuming input might be ID
-            stmt.setString(5, input); // or name
-
-            int updated = stmt.executeUpdate();
-            if (updated > 0) {
-                showAlert(Alert.AlertType.INFORMATION, "Employee info updated.");
-                loadEmployeeData();
-            } else {
-                showAlert(Alert.AlertType.WARNING, "No match found to update.");
-            }
-        } catch (SQLException e) {
-            showAlert(Alert.AlertType.ERROR, "DB Error: " + e.getMessage());
-        }
+    private void clear(ActionEvent event) {
+        tfNameOrEmployeeID.clear();
+        tfPhoneOrEmail.clear();
+        radio.selectToggle(null);
+        tableview.getItems().clear();
+        loadEmployeeData();
     }
 
     @FXML
-    private void clear(ActionEvent event) {
-        tfNameOrEmployeeID.clear();
-        tfPnoneNumber.clear();
-        tfEmail.clear();
-        radio.selectToggle(null);
-        tableview.getItems().clear();
+    private void search(ActionEvent event) {
+        String nameOrId = tfNameOrEmployeeID.getText().trim();
+        String phoneOrEmail = tfPhoneOrEmail.getText().trim();
+
+        employeeList.clear();
+        String sql = "";
+        PreparedStatement stmt = null;
+
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+
+            if (rbPhone.isSelected() && !phoneOrEmail.isEmpty()) {
+                sql = "SELECT * FROM p_hms.SearchEmpInfoController WHERE phone LIKE ?";
+                stmt = conn.prepareStatement(sql);
+                stmt.setString(1, "%" + phoneOrEmail + "%");
+
+            } else if (rbEmail.isSelected() && !phoneOrEmail.isEmpty()) {
+                sql = "SELECT * FROM p_hms.SearchEmpInfoController WHERE email LIKE ?";
+                stmt = conn.prepareStatement(sql);
+                stmt.setString(1, "%" + phoneOrEmail + "%");
+
+            } else if (rbEmployeeID.isSelected() && !nameOrId.isEmpty()) {
+                sql = "SELECT * FROM p_hms.SearchEmpInfoController WHERE emp_id = ?";
+                stmt = conn.prepareStatement(sql);
+                stmt.setInt(1, Integer.parseInt(nameOrId));
+
+            } else if (rbName.isSelected() && !nameOrId.isEmpty()) {
+                sql = "SELECT * FROM p_hms.SearchEmpInfoController WHERE name LIKE ?";
+                stmt = conn.prepareStatement(sql);
+                stmt.setString(1, "%" + nameOrId + "%");
+
+            } else {
+                showAlert(Alert.AlertType.WARNING, "Please fill a field and select the appropriate search type.");
+                return;
+            }
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Employee emp = new Employee(
+                        rs.getInt("emp_id"),
+                        rs.getString("name"),
+                        rs.getString("gender"),
+                        rs.getString("address"),
+                        rs.getString("emp_type"),
+                        rs.getString("date_of_joining"),
+                        rs.getString("dept_name"),
+                        rs.getDouble("salary"),
+                        rs.getString("phone"),
+                        rs.getString("email")
+                );
+                employeeList.add(emp);
+            }
+
+            if (employeeList.isEmpty()) {
+                showAlert(Alert.AlertType.INFORMATION, "No employee found.");
+            }
+
+            tableview.setItems(employeeList);
+
+        } catch (NumberFormatException e) {
+            showAlert(Alert.AlertType.ERROR, "Invalid Employee ID format.");
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "DB Error: " + e.getMessage());
+        }
     }
 
     private void loadEmployeeData() {
         employeeList.clear();
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM Employees")) {
+             ResultSet rs = stmt.executeQuery("SELECT * FROM p_hms.SearchEmpInfoController")) {
 
             while (rs.next()) {
                 Employee emp = new Employee(
@@ -106,7 +140,9 @@ public class SearchEmpInfoController implements Initializable {
                         rs.getString("emp_type"),
                         rs.getString("date_of_joining"),
                         rs.getString("dept_name"),
-                        rs.getDouble("salary")
+                        rs.getDouble("salary"),
+                        rs.getString("phone"),
+                        rs.getString("email")
                 );
                 employeeList.add(emp);
             }
@@ -129,10 +165,11 @@ public class SearchEmpInfoController implements Initializable {
     // Model Class
     public static class Employee {
         private final int empId;
-        private final String name, gender, address, empType, dateOfJoining, deptName;
+        private final String name, gender, address, empType, dateOfJoining, deptName, phone, email;
         private final double salary;
 
-        public Employee(int empId, String name, String gender, String address, String empType, String dateOfJoining, String deptName, double salary) {
+        public Employee(int empId, String name, String gender, String address, String empType, String dateOfJoining,
+                        String deptName, double salary, String phone, String email) {
             this.empId = empId;
             this.name = name;
             this.gender = gender;
@@ -141,6 +178,8 @@ public class SearchEmpInfoController implements Initializable {
             this.dateOfJoining = dateOfJoining;
             this.deptName = deptName;
             this.salary = salary;
+            this.phone = phone;
+            this.email = email;
         }
 
         public int getEmpId() { return empId; }
@@ -151,5 +190,7 @@ public class SearchEmpInfoController implements Initializable {
         public String getDateOfJoining() { return dateOfJoining; }
         public String getDeptName() { return deptName; }
         public double getSalary() { return salary; }
+        public String getPhone() { return phone; }
+        public String getEmail() { return email; }
     }
 }
