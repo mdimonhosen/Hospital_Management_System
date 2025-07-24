@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p_hms.PatientTestsController">
+   <children>
+      <Button fx:id="button1" layoutX="20.0" layoutY="25.0" mnemonicParsing="false" onAction="#back" text="Back">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonSave" layoutX="259.0" layoutY="348.0" mnemonicParsing="false" onAction="#save" text="Save Details">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonClear" layoutX="434.0" layoutY="336.0" mnemonicParsing="false" onAction="#clear" text="Clean Fields">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="227.0" layoutY="21.0" text="Medical Tests" textFill="#0bd917">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="92.0" text="Enter Patient ID">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfID" layoutX="133.0" layoutY="88.0" />
+      <Label layoutX="34.0" layoutY="150.0" text="Select Tests">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboBoxSelectTest" layoutX="133.0" layoutY="146.0" prefWidth="150.0" promptText="Select" />
+      <TableView fx:id="tableView" layoutX="328.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="colS_NO" prefWidth="78.0" text="S_No." />
+          <TableColumn fx:id="colTestName" prefWidth="121.0" text="Test Name" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

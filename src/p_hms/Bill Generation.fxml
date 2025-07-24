@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="564.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p_hms.BillGenerationController">
+   <children>
+      <Button fx:id="buttonGenerateBill" layoutX="270.0" layoutY="525.0" mnemonicParsing="false" onAction="#generatebillbutton" text="Generate Bill">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonClearFields" layoutX="365.0" layoutY="525.0" mnemonicParsing="false" onAction="#clearbutton" text="Clear Fields">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="111.0" layoutY="12.0" text="Bill Generation">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfID" layoutX="115.0" layoutY="56.0" promptText="Enter id numner" />
+      <Label layoutX="15.0" layoutY="60.0" text="Enter Patient ID">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Pane focusTraversable="true" layoutX="23.0" layoutY="105.0" prefHeight="147.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="14.0" layoutY="15.0" text="Name" />
+            <Label layoutX="14.0" layoutY="51.0" text="Gender" />
+            <Label layoutX="14.0" layoutY="86.0" text="Address" />
+            <Label layoutX="8.0" layoutY="119.0" text="DiseasecTreated" />
+            <TextField fx:id="tfNAME" layoutX="101.0" layoutY="10.0" prefHeight="0.0" prefWidth="90.0" promptText="Patient Name" />
+            <TextField fx:id="tfGENDER" layoutX="99.0" layoutY="46.0" prefHeight="25.0" prefWidth="90.0" promptText="Patient Gender" />
+            <TextField fx:id="tfADDRESS" layoutX="98.0" layoutY="81.0" prefHeight="25.0" prefWidth="90.0" promptText="Patient Address" />
+            <TextField fx:id="tfDISEASECTREATED" layoutX="99.0" layoutY="115.0" prefHeight="25.0" prefWidth="90.0" />
+         </children>
+      </Pane>
+      <Button fx:id="button1" layoutX="11.0" layoutY="11.0" mnemonicParsing="false" onAction="#back" text="Back">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="16.0" layoutY="98.0" text="Patient Details">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="17.0" layoutY="253.0" text="Medicines Given">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableview2" layoutX="15.0" layoutY="272.0" prefHeight="95.0" prefWidth="425.0">
+        <columns>
+          <TableColumn fx:id="colS_NO" prefWidth="52.0" text="S_NO." />
+          <TableColumn fx:id="colMEDICINENAME" prefWidth="125.0" text="Medicine Name" />
+            <TableColumn fx:id="colQUANTITY" prefWidth="58.0" text="Quantity" />
+            <TableColumn fx:id="colCOST" prefWidth="81.0" text="Cost" />
+            <TableColumn fx:id="colTOTALCOST" prefWidth="108.0" text="Total Cost" />
+        </columns>
+      </TableView>
+      <Label layoutX="20.0" layoutY="380.0" text="Total Medicines Cost">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="266.0" layoutY="381.0" text="Taka.">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="tfTOTALMEDICINESCOST" layoutX="357.0" layoutY="377.0" prefHeight="25.0" prefWidth="73.0" />
+      <TableView fx:id="tableview1" layoutX="227.0" layoutY="98.0" prefHeight="147.0" prefWidth="228.0">
+        <columns>
+          <TableColumn fx:id="colS_NO" prefWidth="75.0" text="S_NO" />
+          <TableColumn fx:id="colTESTNAME" prefWidth="75.0" text="Test Name" />
+            <TableColumn fx:id="colCOST" prefWidth="75.0" text="Cost" />
+        </columns>
+      </TableView>
+      <TextField fx:id="tfTOTALTESTSCOST" layoutX="300.0" layoutY="407.0" />
+      <TextField fx:id="tfROOMBILL" layoutX="300.0" layoutY="436.0" />
+      <TextField fx:id="tfOTHERCHARGES" layoutX="299.0" layoutY="466.0" />
+      <TextField fx:id="tfTOTALPAYABLEAMMOUNT" layoutX="299.0" layoutY="495.0" />
+      <Label layoutX="265.0" layoutY="412.0" text="Taka.">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="265.0" layoutY="440.0" text="Taka.">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="265.0" layoutY="470.0" text="Taka.">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="266.0" layoutY="499.0" text="Taka.">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="412.0" text="Total Tests Cost">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="122.0" layoutY="440.0" text="Room Bill">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="122.0" layoutY="470.0" text="Other Charges">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="122.0" layoutY="499.0" text="Total Payable Amount">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
