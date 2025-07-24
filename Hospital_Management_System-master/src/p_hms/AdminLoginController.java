@@ -99,7 +99,7 @@ public class AdminLoginController implements Initializable {
 
     @FXML
     private void back(ActionEvent event) {
-        ((Stage) back.getScene().getWindow()).close();
+       ((Stage) buttonBack.getScene().getWindow()).close();
     }
 
 }
