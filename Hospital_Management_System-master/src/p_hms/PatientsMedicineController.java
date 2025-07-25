@@ -22,7 +22,7 @@ public class PatientsMedicineController implements Initializable {
     @FXML private TextField tfID, tfDate, tfQuantity;
     @FXML private ComboBox<String> comboBoxSelectMedicine;
 
-    private final String DB_URL = "jdbc:mysql://localhost:3306/hospital_db";
+    private final String DB_URL = "jdbc:mysql://localhost:3306/p_hms";
     private final String DB_USER = "root";
     private final String DB_PASS = "";
 
