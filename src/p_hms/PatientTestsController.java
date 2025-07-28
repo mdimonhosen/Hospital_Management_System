@@ -24,7 +24,7 @@ public class PatientTestsController implements Initializable {
     @FXML private TableColumn<TestData, Integer> colS_NO;
     @FXML private TableColumn<TestData, String> colTestName;
 
-    private final String DB_URL = "jdbc:mysql://localhost:3306/hospital_db";
+    private final String DB_URL = "jdbc:mysql://localhost:3306/p_hms";
     private final String DB_USER = "root";
     private final String DB_PASS = "";
 
